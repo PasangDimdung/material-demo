@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Pipe } from '@angular/core';
+import { Observable } from 'rxjs';
+import { timer } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,31 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'material-demo';
+
+  isLoading = false;
+  categories=[
+    {name: 'Begineer'},
+    {name: 'Intermediate'},
+    {name: 'Advanced'}
+  ];
+
+  constructor(){
+    this.isLoading = true;
+    this.getCourse()
+    .subscribe( x => 
+      this.isLoading = false
+      );
+  }
+
+  getCourse(){
+    return timer(3000);
+  }
+
+  selectCategories(category){
+    this.categories
+    .filter(c => c!= category)
+    .forEach(c => c['selected']= false)
+
+    category.selected =! category.selected;
+  }
 }

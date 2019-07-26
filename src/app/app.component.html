@@ -1,20 +1,38 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+<div>
+    
+    <h1><mat-icon>brightness_auto</mat-icon> Welcome to Angular Material Demo</h1>
+    <mat-spinner *ngIf='isLoading' mode="indeterminate" strokewidth='3' [diameter]='30'></mat-spinner>
 </div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
 
+<mat-chip-list>
+    <mat-chip *ngFor="let category of categories" (click)="selectCategories(category)" [selected]='category.selected'>
+        {{ category.name}}</mat-chip>
+</mat-chip-list>
+
+<p></p>
+
+<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque enim repellendus architecto perferendis molestiae
+    accusamus ea adipisci nemo! Laboriosam tenetur et architecto! Reiciendis est nostrum ab illum repellat et maxime.
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, ut. Mollitia excepturi, minus perspiciatis adipisci
+    laudantium voluptas. Obcaecati labore perferendis inventore harum, optio ipsum sed, rem voluptatibus, quos similique
+    ratione? Lorem ipsum dolor sit amet consectetur, adipisicing elit. Distinctio laudantium possimus voluptate. Dolore
+    neque praesentium repudiandae perferendis voluptas, possimus ab cupiditate vel quisquam nemo? Ipsa aliquam vero
+    quidem accusamus nihil. Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus incidunt dolores
+    consectetur iure. Odio, dolorem modi officiis fugiat in quidem labore. Aut accusamus quas ratione minima natus sit
+    esse numquam?</p>
+
+<mat-tab-group>
+    <mat-tab label="All">All contacts</mat-tab>
+    <mat-tab label="Missed">Missed contacts</mat-tab>
+    <mat-tab label="Received">Received contacts</mat-tab>
+</mat-tab-group>
+
+<mat-checkbox>Check if it works or not... .</mat-checkbox>
+
+<button color='accent' mat-raised-button>Click Me Please</button>
+
+<p></p>
+
+<span matTooltip='Thank you for trying me :p' matTooltipPosition='right'>Hover over me! </span>
+
+<p></p>
