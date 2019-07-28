@@ -4,10 +4,16 @@
     <mat-spinner *ngIf='isLoading' mode="indeterminate" strokewidth='3' [diameter]='30'></mat-spinner>
 </div>
 
+<p></p>
+
 <mat-chip-list>
     <mat-chip *ngFor="let category of categories" (click)="selectCategories(category)" [selected]='category.selected'>
         {{ category.name}}</mat-chip>
 </mat-chip-list>
+
+<p></p>
+
+<button (click)="openDialog()" mat-raised-button>Open Dialog</button>
 
 <p></p>
 

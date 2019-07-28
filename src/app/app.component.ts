@@ -1,6 +1,8 @@
 import { Component, Pipe } from '@angular/core';
 import { Observable } from 'rxjs';
 import { timer } from 'rxjs';
+import { MatDialog } from '@angular/material';
+import { EditCourseComponent } from './edit-course/edit-course.component';
 
 @Component({
   selector: 'app-root',
@@ -16,7 +18,7 @@ export class AppComponent {
     {name: 'Advanced'}
   ];
 
-  constructor(){
+  constructor(private dialog: MatDialog){
     this.isLoading = true;
     this.getCourse()
     .subscribe( x => 
@@ -26,6 +28,14 @@ export class AppComponent {
 
   getCourse(){
     return timer(3000);
+  }
+
+  openDialog(){
+    this.dialog.open(EditCourseComponent, {
+      data: { courseId: 1}
+    })
+    .afterClosed()
+    .subscribe(result => console.log(result));
   }
 
   selectCategories(category){
